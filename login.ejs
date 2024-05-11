@@ -38,8 +38,7 @@
         .login-header {
             margin-bottom: 30px;
         }
-        input[type="email"],
-        input[type="password"] {
+        .frm input{
             width: 100%;
             padding: 10px;
             margin-bottom: 15px;
@@ -105,12 +104,15 @@
         </div>
         <div class="login-header">
             Log in
-        <h6>Not a member yet?<a href="#">signup</a></h6>
+            <h6>Not a member yet?<a href="#">signup</a></h6>
         </div>
-        <div id="alllog">
-        <input type="email" placeholder="Enter Email" name="email" required>
-        <input type="password" placeholder="Enter Password" name="password" required>
-        <button id="log" type="submit">Log in</button>
+        <form action="/login" method="post" class="frm">
+            <div id="alllog">
+                <input type="text" placeholder="Enter Email" name="user_email_address" required>
+                <input type="text" placeholder="Enter Password" name="user_password" required>
+                <button id="log" type="submit">Log in</button>
+            </div>
+        </form>
         <p id="or">or</p>
         <div class="social-login">
             <a  href="#"><button id="bt"><img src="https://s.yimg.com/fz/api/res/1.2/bfhuQx02Fd0qgLXZbH1dww--~C/YXBwaWQ9c3JjaGRkO2ZpPWZpdDtoPTI0MDtxPTgwO3c9MjQw/https://s.yimg.com/zb/imgv1/ff6c2336-05c2-34bf-8d42-c8eb48fbacf1/t_500x300" height="20px" width="20px"><p id="txt">Log in with Facebook</p></button></a>
