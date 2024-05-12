@@ -5,6 +5,113 @@ body {
     background-color: #f4f4f4;
 }
 
+*{
+    margin: 0;
+    border: 0;
+    font-family: Arial;
+}
+body{
+  background-image: url(./WhatsApp\ Image\ 2024-05-12\ at\ 00.44.23_685ce8dd.jpg);
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat; 
+  background-size: cover;
+
+}
+nav{
+    display: flex;
+    height: 8vh;
+    justify-content: space-between;
+}
+nav img{
+  margin-left: 10px;
+}
+  .nav2 {
+    background-color: rgb(24, 24, 24);
+    clip-path: polygon(53% 0, 100% 0%, 100% 100%, 34% 100%);
+    width: 40vw;
+    display: flex;
+    align-items: center; /* Align items vertically */
+    justify-content: center; /* Center horizontally */
+}
+nav .nav{
+  background-color: #282626;
+  width: 20vw;
+  clip-path: polygon(0 0, 100% 0%, 60% 99%, 0% 100%);
+
+
+}
+.nav2{
+  background-color: rgb(24, 24, 24);
+  clip-path: polygon(53% 0, 100% 0%, 100% 100%, 34% 100%);
+  width: 40vw;
+  align-items: center;
+  justify-content: center;
+  text-decoration:none ;
+}
+.nav2 a{
+text-decoration: none;
+padding-left: 270px;
+color: rgb(237, 240, 237); /* Set text color to white */
+  
+}
+.nav2 a :hover{
+  color: #EC2526;
+}
+
+.navbar {
+    overflow: hidden;
+    /* background-color: #EC2526; */
+    width: 70vw;
+    display:flex;
+    /* justify-content: space-between; */
+  }
+  .navbar a {
+    float: left;
+    font-size: 16px;
+    color: #000;
+    text-align: center;
+    padding: 14px 25px;
+    text-decoration: none;
+  }
+  .dropdown {
+    /* float: left; */
+    overflow: hidden;
+  }
+  .dropdown .dropbtn {
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: #000;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+  }
+  .navbar a:hover, .dropdown:hover .dropbtn {
+    color: #EC2526;
+  }
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  }
+  .dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+  .dropdown-content a:hover {
+    background-color: #ddd;
+  }
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
 .addicon{
     margin: 30px 0px 0px 1400px;
 }

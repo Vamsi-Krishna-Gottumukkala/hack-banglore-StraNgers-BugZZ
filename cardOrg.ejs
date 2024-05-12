@@ -7,6 +7,29 @@
     <link href="./card.css" rel="stylesheet">
 </head>
 <body>
+    <header>
+        <nav>
+            <div class="nav">
+                <a href="/"><img src="./N4T_white.png" height="70px"></a>
+            </div>
+            <div class="navbar">
+                <a href="/">About</a>
+                <a href="#">Communities</a>
+                <a href="/events-user">Events</a>
+                <a href="#">Connect</a>
+                <div class="dropdown">
+                    <button class="dropbtn">Services</button>
+                    <div class="dropdown-content">
+                        <a href="#">Collabration</a>
+                        <a href="/events-orgs">Organising</a>
+                    </div>
+                </div>
+            </div>
+            <div class="nav2">
+                <a href="#">Contact </a>
+            </div>
+        </nav>
+    </header>
     <div class="add">
         <a href="/new">
             <img src="icons8-add-64.png" alt="add" class="addicon">
@@ -16,7 +39,7 @@
         
         <% for(var i=0;i<books.length;i++) { %>
     <div id="card">
-        <img src="<%- books[i].Thumbnail %>" alt="Profile" class="thumb" width="300px">
+        <img src="<%- books[i].Thumbnail %>" alt="Profile" class="thumb" width="300px" height="180px">
         <div id="htc">   
             <h1  class="gap10"><%- books[i].EventTitle %></h1>
             <div class="gap10"><%- books[i].Location %></div>
