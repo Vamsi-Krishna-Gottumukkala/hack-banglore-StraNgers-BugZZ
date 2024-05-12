@@ -119,7 +119,8 @@ color: rgb(237, 240, 237); /* Set text color to white */
     font-size: medium;
   }
   .ma button:hover{
-    background-color: #111117; 
+    background-color: #111117;
+    color: #fff; 
   }
   .ma {
     display: flex;
@@ -139,13 +140,20 @@ color: rgb(237, 240, 237); /* Set text color to white */
   .bd2{
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding-right: 200px;
+    justify-content: space-evenly;
+    padding-left: 100px;
+    margin: 3rem 0rem;
+  }
+  .bd2left img{
+    border-radius: 30px;
   }
   .bd2right{
     display: flex;
     flex-direction: column;
-    justify-content: right;
+    text-align: right;
+  }
+  .redd{
+    color: #EC2526;
   }
   footer{
     display: flex;
