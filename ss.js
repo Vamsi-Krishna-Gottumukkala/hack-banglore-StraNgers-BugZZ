@@ -1,6 +1,7 @@
 var con = require("./connection");
 var exp = require("express");
 const session = require('express-session');
+var fileupload = require('express-fileupload');
 var app = exp();
 const path = require("path");
 const PORT = process.env.PORT || 7001
@@ -9,6 +10,7 @@ var bodyParser = require("body-parser");
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(fileupload());
 
 app.set("view engine", "ejs");
 app.use(exp.static(path.join(__dirname, "public")));
@@ -36,7 +38,6 @@ app.get('/login', (req, res) => {
 app.post('/login', async (request, response, next) => {
 
   var user_email_address = request.body.user_email_address;
-  console.log(request.body.user_email_address)
 
   var user_password = request.body.user_password;
 
@@ -135,32 +136,83 @@ app.get("/new", (req, res) => {
   res.sendFile(__dirname + "/create.html");
 });
 
+// app.post("/new", (req, res) => {
+//   // var thumbnail = req.body.Thumbnail;
+//   let thumbnail = req.files.thumbnail; // Assuming "thumbnail" is the name attribute of the file input field
+//   let uploadPath = __dirname + '/uploads/' + thumbnail.name; // Define upload path
+//   thumbnail.mv(uploadPath, (err) => {
+//     if (err) {
+//       return res.status(500).send(err);
+//     }
+//   var title = req.body.EventTitle;
+//   var location = req.body.Location;
+//   var time = req.body.Time;
+//   var website = req.body.Website;
+
+//   con.connect((err) => {
+
+//     var sql =
+//       "INSERT INTO home (Thumbnail, EventTitle, Location, Time, Website) VALUES ?";
+
+//     var values = [[uploadPath, title, location, time, website]];
+//     con.query(sql, [values], (err) => {
+//       if (err) throw err;
+//       res.redirect("/events-orgs");
+//     });
+//   });
+// });
+// });
+
 app.post("/new", (req, res) => {
-  var name = req.body.name;
-  var type = req.body.type;
-  var status = req.body.status;
-  var score = req.body.score;
-  var author = req.body.author;
-  var completed = req.body.date;
+  if (!req.files || !req.files.thumbnail) {
+    return res.status(400).send("No files were uploaded.");
+  }
 
-  con.connect((err) => {
+  let thumbnail = req.files.thumbnail;
+  let uploadPath = __dirname + '/public/' + thumbnail.name;
 
-    var sql =
-      "INSERT INTO home (name, type, status, score, author, completed) VALUES ?";
+  thumbnail.mv(uploadPath, (err) => {
+    if (err) {
+      return res.status(500).send(err);
+    }
 
-    var values = [[name, type, status, score, author, completed]];
+    var title = req.body.EventTitle;
+    var location = req.body.Location;
+    var time = req.body.Time;
+    var website = req.body.Website;
+
+    var sql = "INSERT INTO home (Thumbnail, EventTitle, Location, Time, Website) VALUES ?";
+
+    var values = [[thumbnail.name, title, location, time, website]];
     con.query(sql, [values], (err) => {
       if (err) throw err;
-      res.redirect("/");
+      res.redirect("/events-orgs");
     });
   });
 });
 
-app.get("/", isAuthenticated, (req, res) => {
+
+app.get("/", (req, res) => {
   var sql = "SELECT * FROM home";
   con.query(sql, (err, result) => {
     if (err) throw err;
-    res.render(__dirname + '/index', { books: result });
+    res.render(__dirname + '/card', { books: result });
+  });
+});
+
+app.get("/events-user", (req, res) => {
+  var sql = "SELECT * FROM home";
+  con.query(sql, (err, result) => {
+    if (err) throw err;
+    res.render(__dirname + '/card', { books: result });
+  });
+});
+
+app.get("/events-orgs", (req, res) => {
+  var sql = "SELECT * FROM home";
+  con.query(sql, (err, result) => {
+    if (err) throw err;
+    res.render(__dirname + '/cardOrg', { books: result });
   });
 });
 
@@ -173,13 +225,13 @@ app.get("/status", (req, res) => {
 });
 
 app.get('/delete-books',(req,res)=>{
-  var sql = "DELETE FROM home where name=?";
+  var sql = "DELETE FROM home where EventTitle=?";
 
-  var name = req.query.name;
+  var EventTitle = req.query.EventTitle;
 
-  con.query(sql, [name], (err, result) => {
+  con.query(sql, [EventTitle], (err, result) => {
     if (err) throw err;
-    res.redirect('/')
+    res.redirect('/events-orgs')
   });
 })
 

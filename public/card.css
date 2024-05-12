@@ -5,39 +5,64 @@ body {
     background-color: #f4f4f4;
 }
 
+.addicon{
+    margin: 30px 0px 0px 1400px;
+}
+
 #card {
     width: 900px;
-    height: 180px;
+    height: 200px;
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    margin: 230px auto;
+    margin: 100px auto;
+    /* padding: auto; */
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
 
-#card img {
+.space{
+    margin-right: 50px;
+}
+
+.thumb {
     border: 2px solid;
     border-radius: 10px;
     margin: 20px;
     width:300px;
-    height: auto;
+    /* height: auto; */
 }
 
 #card h1 {
     font-size: 24px;
     color: #333;
-    margin: 30px 0 10px; /* Added margin-bottom */
+    /* margin: 30px 0 10px; Added margin-bottom */
+    margin: 0%;
+    margin: 0%;
     text-align: center;
 }
 
 #card h5 {
-    margin: 0 0 20px; /* Added margin-top and margin-bottom */
+    margin: 10px 0 0; /*Added margin-top and margin-bottom*/
+    /* margin: 0%; */
     font-size: 16px;
     color: #666;
     text-align: center;
+}
+
+#card div{
+    font-size: large;
+}
+
+.none{
+    text-decoration: none;
+    color: #333;
+}
+
+.gap10{
+    margin-top: 10px;
 }
 
 .but {
@@ -63,4 +88,8 @@ body {
     display:flex;
     flex-direction: column;
     align-items: center;
+}
+
+.margin-ll{
+    margin-right: 10px;
 }

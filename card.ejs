@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="./card.css" rel="stylesheet">
+</head>
+<body>
+    <% if(books.length>0) { %> 
+        
+        <% for(var i=0;i<books.length;i++) { %>
+    <div id="card">
+        <img src="<%- books[i].Thumbnail %>" alt="Profile" class="thumb">
+        <div id="htc">   
+            <h1  class="gap10"><%- books[i].EventTitle %></h1>
+            <div class="gap10"><%- books[i].Location %></div>
+            <div class="gap10"><%- books[i].Time %></div>
+            <h5 class="gap10"><%- books[i].Status %></h5>
+            <a href="<%- books[i].Website %>" class="gap10 none">More details</a>
+        </div>
+        <div class="but">
+            <!-- <button id="but-1">REMOVE</button> -->
+            <button id="but-2">Register</button>
+        </div>
+    </div>
+    <% } %>
+    
+        <% } else { %> 
+            <h1 class="err">Data not found</h1>
+    <% } %>
+    <script src="card.js"></script>
+    <!-- add friend feature with same button -->
+</body>
+</html>
