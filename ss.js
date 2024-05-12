@@ -135,6 +135,9 @@ con.connect((err) => {
 app.get("/new", (req, res) => {
   res.sendFile(__dirname + "/create.html");
 });
+app.get("/connect", (req, res) => {
+  res.sendFile(__dirname + "/friend.html");
+});
 
 // app.post("/new", (req, res) => {
 //   // var thumbnail = req.body.Thumbnail;
@@ -192,7 +195,7 @@ app.post("/new", (req, res) => {
 });
 
 
-app.get("/", (req, res) => {
+app.get("/", isAuthenticated,(req, res) => {
   var sql = "SELECT * FROM home";
   con.query(sql, (err, result) => {
     if (err) throw err;
