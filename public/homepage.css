@@ -4,7 +4,7 @@
     font-family: Arial;
 }
 body{
-  background-image: url(./assests/WhatsApp\ Image\ 2024-05-12\ at\ 12.44.23\ AM.jpeg);
+  background-image: url(./WhatsApp\ Image\ 2024-05-12\ at\ 00.44.23_685ce8dd.jpg);
   height: 100vh;
   background-position: center;
   background-repeat: no-repeat; 
@@ -13,7 +13,7 @@ body{
 }
 nav{
     display: flex;
-    height: 10vh;
+    height: 8vh;
     justify-content: space-between;
 }
 nav img{
@@ -64,7 +64,7 @@ color: rgb(237, 240, 237); /* Set text color to white */
     font-size: 16px;
     color: #000;
     text-align: center;
-    padding: 14px 16px;
+    padding: 14px 25px;
     text-decoration: none;
   }
   .dropdown {
@@ -104,8 +104,11 @@ color: rgb(237, 240, 237); /* Set text color to white */
   .dropdown:hover .dropdown-content {
     display: block;
   }
+  .ntft{
+    padding-left: 550px;
+  }
   .left{
-    padding-left:50px;
+    padding-left:16rem;
   }
   .ma button{
     height: 3rem;
@@ -116,24 +119,43 @@ color: rgb(237, 240, 237); /* Set text color to white */
     font-size: medium;
   }
   .ma button:hover{
-    background-color: #EC2526; 
-  }
-  footer{
-    display: flex;
-    background-color: #EC2526;
-    height: 30vh;
+    background-color: #111117; 
   }
   .ma {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding-right: 200px;
+    /* margin: 80px; */
   }
-  .right img
+  /* .right img
   {
     padding-top: 100px;
-  }
+  } */
   .left button {
     background-color: aliceblue;
     border: 2px solid;
+  }
+  .bd2{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 200px;
+  }
+  .bd2right{
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+  }
+  footer{
+    display: flex;
+    background-color: #111117;
+    height: 20vh;
+    color: #fff;
+    padding: 4rem;
+    justify-content: space-around;
+  }
+
+  .company{
+    padding-top: 2rem;
   }
