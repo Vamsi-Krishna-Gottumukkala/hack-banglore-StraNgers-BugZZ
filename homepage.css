@@ -4,7 +4,7 @@
     font-family: Arial;
 }
 body{
-  background-image: url(https://pixydrops.com/drivschol/assets/images/backgrounds/slider-1-1.png);
+  background-image: url(./assests/WhatsApp\ Image\ 2024-05-12\ at\ 12.44.23\ AM.jpeg);
   height: 100vh;
   background-position: center;
   background-repeat: no-repeat; 
@@ -104,11 +104,10 @@ color: rgb(237, 240, 237); /* Set text color to white */
   .dropdown:hover .dropdown-content {
     display: block;
   }
-  main{
-    margin-left: 50px;
-    margin-top: 30vh;
+  .left{
+    padding-left:50px;
   }
-  main button{
+  .ma button{
     height: 3rem;
     margin-top: 15px;
     width: 9rem;
@@ -116,14 +115,25 @@ color: rgb(237, 240, 237); /* Set text color to white */
     border: 1px solid ;
     font-size: medium;
   }
-  main button:hover{
+  .ma button:hover{
     background-color: #EC2526; 
-  }
-  main{
-    display: flex;
   }
   footer{
     display: flex;
     background-color: #EC2526;
     height: 30vh;
+  }
+  .ma {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 200px;
+  }
+  .right img
+  {
+    padding-top: 100px;
+  }
+  .left button {
+    background-color: aliceblue;
+    border: 2px solid;
   }
