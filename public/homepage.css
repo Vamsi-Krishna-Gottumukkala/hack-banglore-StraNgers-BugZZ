@@ -3,19 +3,66 @@
     border: 0;
     font-family: Arial;
 }
+body{
+  background-image: url(./assests/WhatsApp\ Image\ 2024-05-12\ at\ 12.44.23\ AM.jpeg);
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat; 
+  background-size: cover;
+
+}
 nav{
     display: flex;
+    height: 10vh;
+    justify-content: space-between;
 }
+nav img{
+  margin-left: 10px;
+}
+  .nav2 {
+    background-color: rgb(24, 24, 24);
+    clip-path: polygon(53% 0, 100% 0%, 100% 100%, 34% 100%);
+    width: 40vw;
+    display: flex;
+    align-items: center; /* Align items vertically */
+    justify-content: center; /* Center horizontally */
+}
+nav .nav{
+  background-color: #282626;
+  width: 20vw;
+  clip-path: polygon(0 0, 100% 0%, 60% 99%, 0% 100%);
+
+
+}
+.nav2{
+  background-color: rgb(24, 24, 24);
+  clip-path: polygon(53% 0, 100% 0%, 100% 100%, 34% 100%);
+  width: 40vw;
+  align-items: center;
+  justify-content: center;
+  text-decoration:none ;
+}
+.nav2 a{
+text-decoration: none;
+padding-left: 270px;
+color: rgb(237, 240, 237); /* Set text color to white */
+  
+}
+.nav2 a :hover{
+  color: #EC2526;
+}
+
 .navbar {
     overflow: hidden;
-    background-color: #333;
-    width: 100vw;
-    display: flex;
+    /* background-color: #EC2526; */
+    width: 70vw;
+    display:flex;
+    /* justify-content: space-between; */
   }
   .navbar a {
     float: left;
     font-size: 16px;
-    color: white;
+    color: #000;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -28,19 +75,18 @@ nav{
     font-size: 16px;
     border: none;
     outline: none;
-    color: white;
+    color: #000;
     padding: 14px 16px;
     background-color: inherit;
     font-family: inherit;
     margin: 0;
   }
   .navbar a:hover, .dropdown:hover .dropbtn {
-    background-color: red;
+    color: #EC2526;
   }
   .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #f9f9f9;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   }
@@ -57,4 +103,37 @@ nav{
   }
   .dropdown:hover .dropdown-content {
     display: block;
+  }
+  .left{
+    padding-left:50px;
+  }
+  .ma button{
+    height: 3rem;
+    margin-top: 15px;
+    width: 9rem;
+    border-radius: 10px;
+    border: 1px solid ;
+    font-size: medium;
+  }
+  .ma button:hover{
+    background-color: #EC2526; 
+  }
+  footer{
+    display: flex;
+    background-color: #EC2526;
+    height: 30vh;
+  }
+  .ma {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 200px;
+  }
+  .right img
+  {
+    padding-top: 100px;
+  }
+  .left button {
+    background-color: aliceblue;
+    border: 2px solid;
   }
