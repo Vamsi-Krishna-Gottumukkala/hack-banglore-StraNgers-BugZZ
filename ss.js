@@ -196,7 +196,7 @@ app.get("/", (req, res) => {
   var sql = "SELECT * FROM home";
   con.query(sql, (err, result) => {
     if (err) throw err;
-    res.render(__dirname + '/card', { books: result });
+    res.render(__dirname + '/homepage', { books: result });
   });
 });
 
@@ -236,32 +236,73 @@ app.get('/delete-books',(req,res)=>{
 })
 
 app.get('/update-books',(req,res)=>{
-  var sql = "SELECT * FROM home where name=?";
+  var sql = "SELECT * FROM home where EventTitle=?";
 
-  var name = req.query.name;
+  var EventTitle = req.query.EventTitle;
 
-  con.query(sql, [name], (err, result) => {
+  con.query(sql, [EventTitle], (err, result) => {
     if (err) throw err;
     res.render(__dirname+"/update-books",{books:result})
   });
 })
 
+
+
 app.post('/update-books', (req, res) => {
-  var name = req.body.name;
-  var type = req.body.type;
-  var status = req.body.status;
-  var score = req.body.score;
-  var author = req.body.author;
-  var completed = req.body.date;
-  var bid = req.body.bid;
+  var bid = req.body.bid; // Retrieve bid from the request body
+  // console.log('Bid:', bid);
+  var name = req.body.EventTitle;
+  var location = req.body.Location;
+  var time = req.body.Time;
+  var website = req.body.Website;
 
-  var sql = "UPDATE home SET name=?, type=?, status=?, score=?, author=?, completed=? WHERE bid=?" ;
+  // Check if thumbnail is provided
+  if (req.files && req.files.thumbnail) {
+    let thumbnail = req.files.thumbnail;
+    let uploadPath = __dirname + '/public/' + thumbnail.name;
 
-  con.query(sql, [name, type, status, score, author, completed, bid], (err, result) => {
-    if (err) throw err;
-    res.redirect('/');
-  });
+    thumbnail.mv(uploadPath, (err) => {
+      if (err) {
+        return res.status(500).send(err);
+      }
+
+      var sql = "UPDATE home SET Thumbnail=?, EventTitle=?, Location=?, Time=?, Website=? WHERE bid=?" ;
+
+      con.query(sql, [thumbnail.name, name,location, time, website, bid], (err, result) => {
+        if (err) throw err;
+        res.redirect('/events-orgs');
+      });
+    });
+  } else {
+    // If no thumbnail provided, update other details except the thumbnail
+    var sql = "UPDATE home SET EventTitle=?, Location=?, Time=?, Website=? WHERE bid=?" ;
+    
+    con.query(sql, [name,location, time, website, bid], (err, result) => {
+      // console.log('SQL Query:', sql); // Check if the SQL query is correct
+      // console.log('Values:', [location, time, website, bid]); // Check if values are correct
+      if (err) throw err;
+      res.redirect('/events-orgs');
+    });
+  }
 });
+
+
+// app.post('/update-books', (req, res) => {
+//   var name = req.body.name;
+//   var type = req.body.type;
+//   var status = req.body.status;
+//   var score = req.body.score;
+//   var author = req.body.author;
+//   var completed = req.body.date;
+//   var bid = req.body.bid;
+
+//   var sql = "UPDATE home SET name=?, type=?, status=?, score=?, author=?, completed=? WHERE bid=?" ;
+
+//   con.query(sql, [name, type, status, score, author, completed, bid], (err, result) => {
+//     if (err) throw err;
+//     res.redirect('/');
+//   });
+// });
 
 app.get('/search-books',(req,res)=>{
   var sql = "SELECT * FROM home";
