@@ -10,14 +10,14 @@ body {
     border: 0;
     font-family: Arial;
 }
-body{
+/* body{
   background-image: url(./WhatsApp\ Image\ 2024-05-12\ at\ 00.44.23_685ce8dd.jpg);
   height: 100vh;
   background-position: center;
   background-repeat: no-repeat; 
   background-size: cover;
 
-}
+} */
 nav{
     display: flex;
     height: 8vh;
@@ -123,7 +123,7 @@ color: rgb(237, 240, 237); /* Set text color to white */
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    margin: 100px auto;
+    margin: 60px auto;
     /* padding: auto; */
     display: flex;
     justify-content: space-around;
